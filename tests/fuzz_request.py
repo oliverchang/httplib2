@@ -10,6 +10,8 @@ with atheris.instrument_imports():
 def TestOneInput(input_bytes):
     http = httplib2.Http()
     ib = b"HTTP/1.0 200 OK\r\n" + input_bytes
+    raise Exception('intentional')
+
     with tests.server_const_bytes(ib) as uri:
         http.request(uri)
 
